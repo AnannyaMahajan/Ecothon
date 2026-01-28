@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CTRL ALT ELITE | ECOTHON 2026</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container header-inner">
+        <div class="branding">
+          <span class="badge">India – Israel Hackathon &amp; Symposium 2026</span>
+          <h1>ECOTHON: Water Body Health</h1>
+          <p class="subtitle">
+            Community-Driven Eichhornia (Water Hyacinth) Tracking
+          </p>
+        </div>
+        <nav class="nav">
+          <a href="index.html">Home</a>
+          <a href="map.html">Live Map</a>
+          <a href="report.html" class="nav-cta">Report Infestation</a>
+          <a href="dashboard.html">Dashboard</a>
+          <a href="education.html">Learn</a>
+          <a href="volunteers.html">Volunteer</a>
+          <button class="theme-toggle" aria-label="Toggle dark mode">🌙</button>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <!-- Map-First Hero Section -->
+      <section class="map-hero">
+        <div class="map-hero-container">
+          <div id="home-map" class="home-map"></div>
+          <div class="map-overlay">
+            <div class="map-overlay-content">
+              <h1>Track Water Hyacinth Infestations</h1>
+              <p>Community-driven AI monitoring for cleaner water bodies</p>
+              <div class="hero-actions">
+                <a href="report.html" class="btn btn-primary btn-large">
+                  <span>📸</span> Report Infestation
+                </a>
+                <a href="map.html" class="btn btn-secondary btn-large">
+                  <span>🗺️</span> Explore Map
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="map-stats-bar">
+            <div class="stat-mini">
+              <span class="stat-value" id="home-total-reports">0</span>
+              <span class="stat-label">Reports</span>
+            </div>
+            <div class="stat-mini">
+              <span class="stat-value" id="home-critical">0</span>
+              <span class="stat-label">Critical</span>
+            </div>
+            <div class="stat-mini">
+              <span class="stat-value" id="home-cleaned">0</span>
+              <span class="stat-label">Cleaned</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Proposed Solution -->
+      <section id="solution" class="section">
+        <div class="container">
+          <h2>Proposed Solution</h2>
+          <p class="section-intro">
+            A **Community + AI based monitoring system** that detects water
+            hyacinth spread in water bodies and transforms scattered citizen
+            reports into an actionable, real-time dashboard.
+          </p>
+
+          <div class="grid two-col">
+            <article class="card">
+              <h3>How it Works</h3>
+              <ul class="list">
+                <li>Citizens upload photos of lakes, rivers, and ponds.</li>
+                <li>
+                  AI analyzes images to calculate vegetation coverage and
+                  classify water body health as
+                  <strong>Healthy</strong>, <strong>At Risk</strong>, or
+                  <strong>Critical</strong>.
+                </li>
+                <li>
+                  Each report is geo-tagged and plotted on a live map
+                  dashboard.
+                </li>
+                <li>
+                  Authorities monitor infestation hotspots in real time and
+                  plan targeted interventions.
+                </li>
+              </ul>
+            </article>
+
+            <article class="card">
+              <h3>Why it Matters</h3>
+              <ul class="list">
+                <li>Enables early detection of water hyacinth spread.</li>
+                <li>
+                  Provides precise location data for faster, more efficient
+                  cleanup.
+                </li>
+                <li>
+                  Helps authorities prioritize critical areas using AI-based
+                  severity scoring.
+                </li>
+                <li>
+                  Bridges citizens and authorities for sustainable water
+                  management.
+                </li>
+              </ul>
+            </article>
+          </div>
+
+          <div class="pill-row">
+            <span class="pill">Early Detection</span>
+            <span class="pill">Real-time Geo Mapping</span>
+            <span class="pill">AI-assisted Decisions</span>
+            <span class="pill">Community Participation</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Innovation & Uniqueness -->
+      <section class="section section-alt">
+        <div class="container">
+          <h2>Innovation &amp; Uniqueness</h2>
+          <div class="grid two-col">
+            <article class="card card-soft">
+              <ul class="list">
+                <li>
+                  **Community + AI Integration** for environmental monitoring,
+                  moving beyond slow manual surveys.
+                </li>
+                <li>
+                  Uses simple, explainable computer vision instead of complex,
+                  costly ML black boxes.
+                </li>
+                <li>
+                  Real-time, geo-tagged reports create a live infestation map
+                  accessible to authorities.
+                </li>
+                <li>
+                  Unified platform that connects public participation with a
+                  government-facing dashboard.
+                </li>
+                <li>
+                  Designed as a low-cost, scalable solution that can extend to
+                  other invasive species.
+                </li>
+              </ul>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- Technical Approach -->
+      <section id="technical" class="section">
+        <div class="container">
+          <h2>Technical Approach</h2>
+          <p class="section-intro">
+            A modern, lightweight stack built with open-source tools, optimized
+            for real-time reporting and analysis.
+          </p>
+
+          <div class="grid three-col">
+            <article class="card">
+              <h3>Languages &amp; Frontend</h3>
+              <ul class="list">
+                <li>Python – Backend logic &amp; AI image processing</li>
+                <li>JavaScript – Frontend interactivity &amp; map updates</li>
+                <li>HTML5 &amp; CSS3 – Responsive, accessible UI</li>
+              </ul>
+            </article>
+
+            <article class="card">
+              <h3>Frameworks &amp; Tools</h3>
+              <ul class="list">
+                <li>FastAPI – High-performance REST backend</li>
+                <li>OpenCV – Image analysis &amp; vegetation detection</li>
+                <li>NumPy – Efficient image data processing</li>
+                <li>Leaflet.js – Interactive geo-mapping dashboard</li>
+              </ul>
+            </article>
+
+            <article class="card">
+              <h3>Data &amp; Deployment</h3>
+              <ul class="list">
+                <li>SQLite – Lightweight report &amp; location storage</li>
+                <li>Browser Geolocation API – Automatic GPS detection</li>
+                <li>REST APIs – Seamless frontend–backend integration</li>
+                <li>Runs on standard laptops/PCs and mobile devices</li>
+              </ul>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- Feasibility, Risks & Mitigation -->
+      <section id="feasibility" class="section section-alt">
+        <div class="container">
+          <h2>Feasibility, Risks &amp; Mitigation</h2>
+          <div class="grid three-col">
+            <article class="card card-soft">
+              <h3>Feasibility</h3>
+              <ul class="list">
+                <li>Technically practical on normal computers.</li>
+                <li>
+                  Low cost, built with free and open-source technologies.
+                </li>
+                <li>Easy to use with just a smartphone for reporting.</li>
+                <li>Scales from city pilots to national deployments.</li>
+                <li>Operationally useful for real-time authority action.</li>
+              </ul>
+            </article>
+
+            <article class="card card-soft">
+              <h3>Challenges &amp; Risks</h3>
+              <ul class="list">
+                <li>Inaccurate or blurry citizen-submitted images.</li>
+                <li>GPS inaccuracies from mobile devices.</li>
+                <li>Dependence on stable internet connectivity.</li>
+                <li>AI misclassification in complex environments.</li>
+                <li>Low citizen participation affecting coverage.</li>
+                <li>Data privacy and security concerns.</li>
+                <li>Ongoing maintenance and model updates.</li>
+              </ul>
+            </article>
+
+            <article class="card card-soft">
+              <h3>Mitigation Strategies</h3>
+              <ul class="list">
+                <li>Image quality prompts and guidelines in the app.</li>
+                <li>
+                  Auto GPS validation with map preview and confirmation.
+                </li>
+                <li>
+                  Offline capture with delayed upload for low-connectivity
+                  areas.
+                </li>
+                <li>
+                  Continuous AI model improvement with new field data.
+                </li>
+                <li>
+                  Engagement features: rewards, badges, awareness drives.
+                </li>
+                <li>
+                  Strong data security, encryption, and privacy compliance.
+                </li>
+                <li>
+                  Expert authority verification for critical AI detections.
+                </li>
+              </ul>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- Impact & Benefits -->
+      <section id="impact" class="section">
+        <div class="container">
+          <h2>Impact &amp; Benefits</h2>
+          <p class="section-intro">
+            Turning every citizen into an environmental guardian while giving
+            authorities the data they need to act quickly and effectively.
+          </p>
+
+          <div class="grid four-col impact-grid">
+            <article class="card impact-card">
+              <h3>Environmental</h3>
+              <ul class="list">
+                <li>Early detection slows invasive species spread.</li>
+                <li>Protects aquatic life and biodiversity.</li>
+                <li>Prevents water blockage and ecosystem damage.</li>
+              </ul>
+            </article>
+
+            <article class="card impact-card">
+              <h3>Social</h3>
+              <ul class="list">
+                <li>Citizens actively contribute to conservation.</li>
+                <li>Raises awareness about water health and invasives.</li>
+                <li>
+                  Strengthens collaboration between communities and
+                  government.
+                </li>
+              </ul>
+            </article>
+
+            <article class="card impact-card">
+              <h3>Economic</h3>
+              <ul class="list">
+                <li>Reduces large-scale cleanup and survey costs.</li>
+                <li>
+                  Minimizes losses in fisheries, agriculture, and tourism.
+                </li>
+                <li>Saves manpower required for manual field surveys.</li>
+              </ul>
+            </article>
+
+            <article class="card impact-card">
+              <h3>Governance</h3>
+              <ul class="list">
+                <li>Delivers real-time data for better planning.</li>
+                <li>Enables faster, data-driven decision-making.</li>
+                <li>Increases efficiency of environmental monitoring.</li>
+              </ul>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- Research & References -->
+      <section id="research" class="section section-alt">
+        <div class="container">
+          <h2>Research &amp; References</h2>
+          <p class="section-intro">
+            The solution is grounded in current research on remote sensing,
+            computer vision, and invasive species monitoring.
+          </p>
+
+          <div class="card card-soft">
+            <ul class="list">
+              <li>
+                Remote Sensing for Water Hyacinth Monitoring – Systematic
+                review of satellite and UAV monitoring methods for invasive
+                water hyacinth.
+              </li>
+              <li>
+                Estimation of Water Hyacinth Using Computer Vision – Research
+                on computer vision for aquatic biomass estimation.
+              </li>
+              <li>
+                Detection &amp; Mapping of Water Hyacinth with Machine Learning
+                – ML and remote sensing for invasive species mapping.
+              </li>
+              <li>
+                Spatio-Temporal Water Hyacinth Monitoring (GIS) – GIS tools for
+                invasive species detection and monitoring.
+              </li>
+              <li>
+                Water Hyacinth Ecology &amp; Global Spread – Species overview
+                and impact case studies.
+              </li>
+            </ul>
+            <p class="small-note">
+              Full citation links available on request.
+            </p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <p>
+          &copy; ECOTHON 2026 &mdash; Team CTRL ALT ELITE &middot; Water Body
+          Health: Community-Driven Eichhornia Tracking
+        </p>
+      </div>
+    </footer>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="app.js"></script>
+    <script>
+      // Initialize home map
+      if (document.getElementById('home-map')) {
+        const homeMap = L.map('home-map').setView([20.5937, 78.9629], 5);
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+          attribution: '&copy; OpenStreetMap contributors',
+          maxZoom: 19,
+        }).addTo(homeMap);
+
+        // Load and display sample markers
+        fetch('http://localhost:8000/api/reports')
+          .then(r => r.json())
+          .then(reports => {
+            reports.slice(0, 10).forEach(report => {
+              const color = {
+                low: '#86efac',
+                medium: '#fde047',
+                high: '#fb923c',
+                critical: '#f87171'
+              }[report.severity] || '#86efac';
+              
+              L.circleMarker([report.latitude, report.longitude], {
+                radius: 8,
+                fillColor: color,
+                color: '#fff',
+                weight: 2,
+                opacity: 1,
+                fillOpacity: 0.8
+              }).addTo(homeMap);
+            });
+            
+            // Update stats
+            document.getElementById('home-total-reports').textContent = reports.length;
+            document.getElementById('home-critical').textContent = reports.filter(r => r.severity === 'critical').length;
+            document.getElementById('home-cleaned').textContent = '12'; // Placeholder
+          })
+          .catch(() => {
+            // Use sample data
+            document.getElementById('home-total-reports').textContent = '47';
+            document.getElementById('home-critical').textContent = '8';
+            document.getElementById('home-cleaned').textContent = '12';
+          });
+      }
+    </script>
+  </body>
+  </html>
+

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard | ECOTHON 2026</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="dashboard.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container header-inner">
+        <div class="branding">
+          <span class="badge">ECOTHON 2026</span>
+          <h1>Monitoring Dashboard</h1>
+        </div>
+        <nav class="nav">
+          <a href="index.html">Home</a>
+          <a href="map.html">Live Map</a>
+          <a href="report.html">Report</a>
+          <a href="dashboard.html" class="active">Dashboard</a>
+          <a href="education.html">Learn</a>
+          <a href="volunteers.html">Volunteer</a>
+          <button class="theme-toggle" aria-label="Toggle dark mode">🌙</button>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="section">
+        <div class="container">
+          <h2>Real-Time Statistics</h2>
+
+          <div class="stats-grid">
+            <div class="stat-card">
+              <div class="stat-icon">📊</div>
+              <div class="stat-value" id="total-reports">0</div>
+              <div class="stat-label">Total Reports</div>
+            </div>
+
+            <div class="stat-card">
+              <div class="stat-icon">✅</div>
+              <div class="stat-value" id="areas-cleaned">0</div>
+              <div class="stat-label">Areas Cleaned</div>
+            </div>
+
+            <div class="stat-card critical">
+              <div class="stat-icon">🚨</div>
+              <div class="stat-value" id="high-critical">0</div>
+              <div class="stat-label">High & Critical Cases</div>
+            </div>
+
+            <div class="stat-card">
+              <div class="stat-icon">📈</div>
+              <div class="stat-value" id="growth-rate">0%</div>
+              <div class="stat-label">Growth Rate (30 days)</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section-alt">
+        <div class="container">
+          <h2>Reports Over Time</h2>
+          <div class="chart-container">
+            <canvas id="reports-chart"></canvas>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container">
+          <h2>Severity Distribution</h2>
+          <div class="chart-container">
+            <canvas id="severity-chart"></canvas>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section-alt">
+        <div class="container">
+          <h2>Recent Reports</h2>
+          <div id="recent-reports" class="reports-list">
+            <p class="muted-text">Loading reports...</p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <p>&copy; ECOTHON 2026 &mdash; Team CTRL ALT ELITE</p>
+      </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+    <script src="app.js"></script>
+    <script src="dashboard.js"></script>
+  </body>
+</html>

@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Report Infestation | ECOTHON 2026</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="report.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container header-inner">
+        <div class="branding">
+          <span class="badge">ECOTHON 2026</span>
+          <h1>Report Infestation</h1>
+        </div>
+        <nav class="nav">
+          <a href="index.html">Home</a>
+          <a href="map.html">Live Map</a>
+          <a href="report.html" class="active nav-cta">Report Infestation</a>
+          <a href="dashboard.html">Dashboard</a>
+          <a href="education.html">Learn</a>
+          <a href="volunteers.html">Volunteer</a>
+          <button class="theme-toggle" aria-label="Toggle dark mode">🌙</button>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="section">
+        <div class="container">
+          <div class="report-header">
+            <h2>Report Water Hyacinth Infestation</h2>
+            <p class="section-intro">
+              Help us track and monitor infestations. Your report will be analyzed by AI and added to our live map.
+            </p>
+          </div>
+
+          <!-- Progress Steps -->
+          <div class="steps-progress">
+            <div class="step-item active" data-step="1">
+              <div class="step-number">1</div>
+              <div class="step-label">Photo</div>
+            </div>
+            <div class="step-line"></div>
+            <div class="step-item" data-step="2">
+              <div class="step-number">2</div>
+              <div class="step-label">Location</div>
+            </div>
+            <div class="step-line"></div>
+            <div class="step-item" data-step="3">
+              <div class="step-number">3</div>
+              <div class="step-label">Details</div>
+            </div>
+            <div class="step-line"></div>
+            <div class="step-item" data-step="4">
+              <div class="step-number">4</div>
+              <div class="step-label">Review</div>
+            </div>
+          </div>
+
+          <form id="report-form" class="report-form">
+            <!-- Step 1: Photo Upload -->
+            <div class="form-step active" data-step="1">
+              <h3>Step 1: Upload Photo Evidence</h3>
+              <div class="form-group">
+                <label for="photo">Photo Evidence *</label>
+                <div class="file-upload-area" id="upload-area">
+                  <input
+                    type="file"
+                    id="photo"
+                    name="photo"
+                    accept="image/*"
+                    required
+                  />
+                  <div class="upload-preview">
+                    <span class="upload-icon">📸</span>
+                    <span class="upload-text">Click to upload or drag and drop</span>
+                    <span class="upload-hint">PNG, JPG up to 10MB</span>
+                  </div>
+                  <img id="photo-preview" class="photo-preview" />
+                </div>
+                <div id="ai-analysis" class="ai-analysis"></div>
+              </div>
+              <div class="step-actions">
+                <button type="button" class="btn btn-primary" onclick="nextStep()">Continue →</button>
+              </div>
+            </div>
+
+            <!-- Step 2: Location -->
+            <div class="form-step" data-step="2">
+              <h3>Step 2: Set Location</h3>
+              <div class="form-group">
+                <label for="location">Location Name</label>
+                <input
+                  type="text"
+                  id="location"
+                  name="location"
+                  placeholder="Enter location name or address"
+                />
+              </div>
+              <div class="location-map-container">
+                <div id="location-map" class="location-map"></div>
+                <div class="location-controls">
+                  <button type="button" id="get-location-btn" class="btn btn-secondary">
+                    📍 Use Current Location
+                  </button>
+                  <p class="location-hint">Drag the pin to adjust location</p>
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="latitude">Latitude</label>
+                  <input
+                    type="number"
+                    id="latitude"
+                    name="latitude"
+                    step="any"
+                    readonly
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="longitude">Longitude</label>
+                  <input
+                    type="number"
+                    id="longitude"
+                    name="longitude"
+                    step="any"
+                    readonly
+                  />
+                </div>
+              </div>
+              <div class="step-actions">
+                <button type="button" class="btn btn-secondary" onclick="prevStep()">← Back</button>
+                <button type="button" class="btn btn-primary" onclick="nextStep()">Continue →</button>
+              </div>
+            </div>
+
+            <!-- Step 3: Details -->
+            <div class="form-step" data-step="3">
+              <h3>Step 3: Add Details</h3>
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="date-observed">Date Observed *</label>
+                  <input
+                    type="date"
+                    id="date-observed"
+                    name="date_observed"
+                    required
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="severity">Severity Level</label>
+                  <div class="severity-selector">
+                    <button type="button" class="severity-option" data-severity="low">
+                      <span class="severity-dot low"></span>
+                      Low
+                    </button>
+                    <button type="button" class="severity-option" data-severity="medium">
+                      <span class="severity-dot medium"></span>
+                      Medium
+                    </button>
+                    <button type="button" class="severity-option" data-severity="high">
+                      <span class="severity-dot high"></span>
+                      High
+                    </button>
+                    <button type="button" class="severity-option" data-severity="critical">
+                      <span class="severity-dot critical"></span>
+                      Critical
+                    </button>
+                  </div>
+                  <input type="hidden" id="severity" name="severity" />
+                  <small class="form-hint">AI detected: <span id="ai-severity">-</span> (<span id="ai-confidence">-</span>)</small>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="description">Description *</label>
+                <textarea
+                  id="description"
+                  name="description"
+                  rows="5"
+                  placeholder="Describe the infestation: density, color, area covered, water body type, etc."
+                  required
+                ></textarea>
+                <small class="form-hint">AI will analyze your description to help classify severity</small>
+              </div>
+              <div class="step-actions">
+                <button type="button" class="btn btn-secondary" onclick="prevStep()">← Back</button>
+                <button type="button" class="btn btn-primary" onclick="nextStep()">Continue →</button>
+              </div>
+            </div>
+
+            <!-- Step 4: Review -->
+            <div class="form-step" data-step="4">
+              <h3>Step 4: Review & Submit</h3>
+              <div id="review-summary" class="review-summary"></div>
+              <div class="step-actions">
+                <button type="button" class="btn btn-secondary" onclick="prevStep()">← Back</button>
+                <button type="submit" class="btn btn-primary">
+                  ✓ Submit Report
+                </button>
+              </div>
+            </div>
+
+            <div id="submit-status" class="submit-status"></div>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <p>&copy; ECOTHON 2026 &mdash; Team CTRL ALT ELITE</p>
+      </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@4.10.0/dist/tf.min.js"></script>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="app.js"></script>
+    <script src="report.js"></script>
+  </body>
+</html>

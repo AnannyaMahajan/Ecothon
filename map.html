@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Live Map | ECOTHON 2026</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link0
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    />
+    <link rel="stylesheet" href="map.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container header-inner">
+        <div class="branding">
+          <span class="badge">ECOTHON 2026</span>
+          <h1>Live Infestation Map</h1>
+        </div>
+        <nav class="nav">
+          <a href="index.html">Home</a>
+          <a href="map.html" class="active">Live Map</a>
+          <a href="report.html" class="nav-cta">Report Infestation</a>
+          <a href="dashboard.html">Dashboard</a>
+          <a href="education.html">Learn</a>
+          <a href="volunteers.html">Volunteer</a>
+          <button class="theme-toggle" aria-label="Toggle dark mode">🌙</button>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="map-section">
+        <div class="map-controls-panel">
+          <div class="map-filters">
+            <div class="filter-group">
+              <label class="filter-label">Severity</label>
+              <div class="filter-buttons">
+                <button class="filter-btn active" data-severity="all">All</button>
+                <button class="filter-btn severity-low" data-severity="low">Low</button>
+                <button class="filter-btn severity-medium" data-severity="medium">Medium</button>
+                <button class="filter-btn severity-high" data-severity="high">High</button>
+                <button class="filter-btn severity-critical" data-severity="critical">Critical</button>
+              </div>
+            </div>
+            <div class="filter-group">
+              <label class="filter-label">View</label>
+              <div class="view-toggle">
+                <button class="view-btn active" data-view="markers">📍 Markers</button>
+                <button class="view-btn" data-view="heatmap">🔥 Heatmap</button>
+              </div>
+            </div>
+            <div class="filter-group">
+              <label class="filter-label">Date Range</label>
+              <select class="date-filter" id="date-range">
+                <option value="all">All Time</option>
+                <option value="7">Last 7 Days</option>
+                <option value="30">Last 30 Days</option>
+                <option value="90">Last 90 Days</option>
+              </select>
+            </div>
+          </div>
+          <div class="map-stats-panel">
+            <div class="stat-card-mini">
+              <span class="stat-icon">📊</span>
+              <div>
+                <div class="stat-value" id="total-reports">0</div>
+                <div class="stat-label">Total Reports</div>
+              </div>
+            </div>
+            <div class="stat-card-mini critical">
+              <span class="stat-icon">🚨</span>
+              <div>
+                <div class="stat-value" id="critical-count">0</div>
+                <div class="stat-label">Critical</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="map" class="map-container"></div>
+        <div id="marker-preview" class="marker-preview hidden">
+          <button class="preview-close" aria-label="Close preview">×</button>
+          <div id="preview-content"></div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <p>&copy; ECOTHON 2026 &mdash; Team CTRL ALT ELITE</p>
+      </div>
+    </footer>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="app.js"></script>
+    <script src="map.js"></script>
+  </body>
+</html>

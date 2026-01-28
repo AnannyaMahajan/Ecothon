@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Volunteers | ECOTHON 2026</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="volunteers.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container header-inner">
+        <div class="branding">
+          <span class="badge">ECOTHON 2026</span>
+          <h1>Volunteer Program</h1>
+        </div>
+        <nav class="nav">
+          <a href="index.html">Home</a>
+          <a href="map.html">Live Map</a>
+          <a href="report.html">Report</a>
+          <a href="dashboard.html">Dashboard</a>
+          <a href="education.html">Learn</a>
+          <a href="volunteers.html" class="active">Volunteer</a>
+          <button class="theme-toggle" aria-label="Toggle dark mode">🌙</button>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="section">
+        <div class="container">
+          <h2>Top Contributors</h2>
+          <p class="section-intro">
+            Recognizing the community members who are making a difference in
+            tracking and cleaning water hyacinth infestations.
+          </p>
+
+          <div class="contributors-grid">
+            <div class="contributor-card">
+              <div class="contributor-rank">🥇</div>
+              <div class="contributor-avatar">RK</div>
+              <h3>Rajesh Kumar</h3>
+              <div class="contributor-stats">
+                <span class="stat">📸 23 Reports</span>
+                <span class="stat">🧹 5 Cleanups</span>
+              </div>
+              <div class="contributor-badge">Top Reporter</div>
+            </div>
+
+            <div class="contributor-card">
+              <div class="contributor-rank">🥈</div>
+              <div class="contributor-avatar">PM</div>
+              <h3>Priya Menon</h3>
+              <div class="contributor-stats">
+                <span class="stat">📸 18 Reports</span>
+                <span class="stat">🧹 7 Cleanups</span>
+              </div>
+              <div class="contributor-badge">Cleanup Champion</div>
+            </div>
+
+            <div class="contributor-card">
+              <div class="contributor-rank">🥉</div>
+              <div class="contributor-avatar">AS</div>
+              <h3>Arjun Sharma</h3>
+              <div class="contributor-stats">
+                <span class="stat">📸 15 Reports</span>
+                <span class="stat">🧹 4 Cleanups</span>
+              </div>
+              <div class="contributor-badge">Active Contributor</div>
+            </div>
+          </div>
+
+          <div id="contributors-list" class="contributors-list">
+            <!-- Will be populated by JavaScript -->
+          </div>
+        </div>
+      </section>
+
+      <section class="section section-alt">
+        <div class="container">
+          <h2>Join the Cleanup Squad</h2>
+          <p class="section-intro">
+            Sign up to receive notifications about cleanup events and volunteer
+            opportunities in your area.
+          </p>
+
+          <div class="signup-container">
+            <form id="volunteer-form" class="volunteer-form">
+              <div class="form-group">
+                <label for="volunteer-name">Name *</label>
+                <input
+                  type="text"
+                  id="volunteer-name"
+                  name="name"
+                  required
+                  placeholder="Your full name"
+                />
+              </div>
+
+              <div class="form-group">
+                <label for="volunteer-email">Email *</label>
+                <input
+                  type="email"
+                  id="volunteer-email"
+                  name="email"
+                  required
+                  placeholder="your.email@example.com"
+                />
+              </div>
+
+              <div class="form-group">
+                <label for="volunteer-location">Location</label>
+                <input
+                  type="text"
+                  id="volunteer-location"
+                  name="location"
+                  placeholder="City, State"
+                />
+              </div>
+
+              <div class="form-group">
+                <label for="volunteer-interests">Interests</label>
+                <div class="checkbox-group">
+                  <label class="checkbox-label">
+                    <input
+                      type="checkbox"
+                      name="interests"
+                      value="reporting"
+                    />
+                    Reporting Infestations
+                  </label>
+                  <label class="checkbox-label">
+                    <input
+                      type="checkbox"
+                      name="interests"
+                      value="cleanup"
+                    />
+                    Cleanup Activities
+                  </label>
+                  <label class="checkbox-label">
+                    <input
+                      type="checkbox"
+                      name="interests"
+                      value="education"
+                    />
+                    Educational Outreach
+                  </label>
+                </div>
+              </div>
+
+              <div class="form-actions">
+                <button type="submit" class="btn btn-primary">
+                  Join the Squad
+                </button>
+              </div>
+
+              <div id="signup-status" class="submit-status"></div>
+            </form>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <p>&copy; ECOTHON 2026 &mdash; Team CTRL ALT ELITE</p>
+      </div>
+    </footer>
+
+    <script src="app.js"></script>
+    <script src="volunteers.js"></script>
+  </body>
+</html>
